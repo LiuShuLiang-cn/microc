@@ -20,7 +20,8 @@ let nl = CstI 10 //  \n 的 ASCII 码
 %token CHAR ELSE IF INT NULL PRINT PRINTLN RETURN VOID WHILE
 %token PLUS MINUS TIMES DIV MOD
 %token EQ NE GT LT GE LE
-%token NOT SEQOR SEQAND
+// 自增token
+%token NOT SEQOR SEQAND PREINC
 %token LPAR RPAR LBRACE RBRACE LBRACK RBRACK SEMI COMMA ASSIGN AMP
 %token EOF
 
@@ -170,6 +171,8 @@ ExprNotAccess:
   | Expr LT    Expr                     { Prim2("<",  $1, $3) }
   | Expr GE    Expr                     { Prim2(">=", $1, $3) }
   | Expr LE    Expr                     { Prim2("<=", $1, $3) }
+  | Access PREINC                       { Prim3("I++", $1)    } // i++
+  | PREINC Access                       { Prim3("++I", $2)    } // ++i
   | Expr SEQAND Expr                    { Andalso($1, $3)     }
   | Expr SEQOR  Expr                    { Orelse($1, $3)      }
 ;
