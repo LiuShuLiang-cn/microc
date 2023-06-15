@@ -18,6 +18,8 @@ type token =
   | PREINC
   | PREDEC
   | QST
+  | FLOAT
+  | CSTFLOAT of (float32)
   | EQ
   | NE
   | GT
@@ -66,6 +68,8 @@ type tokenId =
     | TOKEN_PREINC
     | TOKEN_PREDEC
     | TOKEN_QST
+    | TOKEN_FLOAT
+    | TOKEN_CSTFLOAT
     | TOKEN_EQ
     | TOKEN_NE
     | TOKEN_GT
@@ -120,6 +124,7 @@ type nonTerminalId =
     | NONTERM_Exprs
     | NONTERM_Exprs1
     | NONTERM_Const
+    | NONTERM_ConstFloat
     | NONTERM_Type
     | NONTERM_CaseBody
     | NONTERM_CaseDec

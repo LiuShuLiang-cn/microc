@@ -35,6 +35,7 @@ let keyword s =
     | "switch"  -> SWITCH  // switch关键字
     | "case"    -> CASE    // case关键字
     | "default" -> DEFAULT // switch中的默认
+    | "float"   -> FLOAT
     | _         -> NAME s   // 缺省情况，是标识符的名字，如 函数名，变量名等
                             // 当所有的关键字没有匹配成功时，则当成标识符
 // 字符串转义符处理函数
@@ -51,7 +52,7 @@ let cEscape s =
     | "\\r"  -> '\r'
     | _      -> failwith "Lexer error: impossible C escape"
 
-# 54 "CLex.fs"
+# 55 "CLex.fs"
 let trans : uint16[] array = 
     [| 
     (* State 0 *)
@@ -111,7 +112,7 @@ let trans : uint16[] array =
     (* State 27 *)
      [| 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 255us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |];
     (* State 28 *)
-     [| 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 255us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |];
+     [| 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 66us; 65535us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 255us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |];
     (* State 29 *)
      [| 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 65535us; 65535us; 65535us; 65535us; 65535us; 255us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |];
     (* State 30 *)
@@ -185,290 +186,303 @@ let trans : uint16[] array =
     (* State 64 *)
      [| 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 64us; 65535us; 65535us; 65535us; 65535us; 65535us; 255us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |];
     (* State 65 *)
-     [| 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 255us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |];
+     [| 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 66us; 65535us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 255us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |];
+    (* State 66 *)
+     [| 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 68us; 65535us; 67us; 67us; 67us; 67us; 67us; 67us; 67us; 67us; 67us; 67us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 255us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |];
+    (* State 67 *)
+     [| 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 69us; 69us; 69us; 69us; 69us; 69us; 69us; 69us; 69us; 69us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 255us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |];
+    (* State 68 *)
+     [| 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 68us; 65535us; 67us; 67us; 67us; 67us; 67us; 67us; 67us; 67us; 67us; 67us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 255us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |];
+    (* State 69 *)
+     [| 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 69us; 69us; 69us; 69us; 69us; 69us; 69us; 69us; 69us; 69us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 255us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |];
     |] 
-let actions : uint16[] = [|65535us; 0us; 3us; 7us; 4us; 4us; 5us; 6us; 7us; 2us; 1us; 65535us; 0us; 1us; 1us; 2us; 65535us; 4us; 4us; 2us; 3us; 3us; 4us; 1us; 0us; 65535us; 0us; 1us; 2us; 3us; 4us; 7us; 8us; 9us; 10us; 11us; 12us; 13us; 23us; 16us; 17us; 36us; 22us; 24us; 25us; 26us; 27us; 28us; 29us; 30us; 31us; 34us; 35us; 36us; 21us; 20us; 19us; 18us; 15us; 14us; 32us; 33us; 6us; 5us; 3us; 2us; |]
+let actions : uint16[] = [|65535us; 0us; 3us; 7us; 4us; 4us; 5us; 6us; 7us; 2us; 1us; 65535us; 0us; 1us; 1us; 2us; 65535us; 4us; 4us; 2us; 3us; 3us; 4us; 1us; 0us; 65535us; 0us; 1us; 2us; 4us; 5us; 8us; 9us; 10us; 11us; 12us; 13us; 14us; 24us; 17us; 18us; 37us; 23us; 25us; 26us; 27us; 28us; 29us; 30us; 31us; 32us; 35us; 36us; 37us; 22us; 21us; 20us; 19us; 16us; 15us; 33us; 34us; 7us; 6us; 4us; 2us; 65535us; 3us; 65535us; 3us; |]
 let _fslex_tables = FSharp.Text.Lexing.UnicodeTables.Create(trans,actions)
 let rec _fslex_dummy () = _fslex_dummy() 
 // Rule Token
 and Token  lexbuf =
   match _fslex_tables.Interpret(25,lexbuf) with
   | 0 -> ( 
-# 54 "CLex.fsl"
+# 55 "CLex.fsl"
                                      Token lexbuf 
-# 199 "CLex.fs"
+# 208 "CLex.fs"
           )
   | 1 -> ( 
-# 59 "CLex.fsl"
+# 60 "CLex.fsl"
                                      lexbuf.EndPos <- lexbuf.EndPos.NextLine; Token lexbuf 
-# 204 "CLex.fs"
+# 213 "CLex.fs"
           )
   | 2 -> ( 
-# 61 "CLex.fsl"
+# 62 "CLex.fsl"
                                      CSTINT (System.Int32.Parse (lexemeAsString lexbuf)) 
-# 209 "CLex.fs"
+# 218 "CLex.fs"
           )
   | 3 -> ( 
 # 67 "CLex.fsl"
-                                     keyword (lexemeAsString lexbuf) 
-# 214 "CLex.fs"
+                                     CSTFLOAT (System.Single.Parse (lexemeAsString lexbuf)) 
+# 223 "CLex.fs"
           )
   | 4 -> ( 
 # 69 "CLex.fsl"
-                                     PLUS 
-# 219 "CLex.fs"
+                                     keyword (lexemeAsString lexbuf) 
+# 228 "CLex.fs"
           )
   | 5 -> ( 
 # 71 "CLex.fsl"
-                                     PREINC 
-# 224 "CLex.fs"
+                                     PLUS 
+# 233 "CLex.fs"
           )
   | 6 -> ( 
-# 72 "CLex.fsl"
-                                     PREDEC 
-# 229 "CLex.fs"
+# 73 "CLex.fsl"
+                                     PREINC 
+# 238 "CLex.fs"
           )
   | 7 -> ( 
-# 73 "CLex.fsl"
-                                     MINUS 
-# 234 "CLex.fs"
+# 74 "CLex.fsl"
+                                     PREDEC 
+# 243 "CLex.fs"
           )
   | 8 -> ( 
-# 74 "CLex.fsl"
-                                     TIMES 
-# 239 "CLex.fs"
+# 75 "CLex.fsl"
+                                     MINUS 
+# 248 "CLex.fs"
           )
   | 9 -> ( 
-# 75 "CLex.fsl"
-                                     COLON 
-# 244 "CLex.fs"
+# 76 "CLex.fsl"
+                                     TIMES 
+# 253 "CLex.fs"
           )
   | 10 -> ( 
-# 76 "CLex.fsl"
-                                     QST  
-# 249 "CLex.fs"
+# 77 "CLex.fsl"
+                                     COLON 
+# 258 "CLex.fs"
           )
   | 11 -> ( 
-# 77 "CLex.fsl"
-                                     DIV 
-# 254 "CLex.fs"
+# 78 "CLex.fsl"
+                                     QST  
+# 263 "CLex.fs"
           )
   | 12 -> ( 
-# 78 "CLex.fsl"
-                                     MOD 
-# 259 "CLex.fs"
+# 79 "CLex.fsl"
+                                     DIV 
+# 268 "CLex.fs"
           )
   | 13 -> ( 
-# 79 "CLex.fsl"
-                                     ASSIGN 
-# 264 "CLex.fs"
+# 80 "CLex.fsl"
+                                     MOD 
+# 273 "CLex.fs"
           )
   | 14 -> ( 
-# 80 "CLex.fsl"
-                                     EQ 
-# 269 "CLex.fs"
+# 81 "CLex.fsl"
+                                     ASSIGN 
+# 278 "CLex.fs"
           )
   | 15 -> ( 
-# 81 "CLex.fsl"
-                                     NE 
-# 274 "CLex.fs"
+# 82 "CLex.fsl"
+                                     EQ 
+# 283 "CLex.fs"
           )
   | 16 -> ( 
-# 82 "CLex.fsl"
-                                     GT 
-# 279 "CLex.fs"
+# 83 "CLex.fsl"
+                                     NE 
+# 288 "CLex.fs"
           )
   | 17 -> ( 
-# 83 "CLex.fsl"
-                                     LT 
-# 284 "CLex.fs"
+# 84 "CLex.fsl"
+                                     GT 
+# 293 "CLex.fs"
           )
   | 18 -> ( 
-# 84 "CLex.fsl"
-                                     GE 
-# 289 "CLex.fs"
+# 85 "CLex.fsl"
+                                     LT 
+# 298 "CLex.fs"
           )
   | 19 -> ( 
-# 85 "CLex.fsl"
-                                     LE 
-# 294 "CLex.fs"
+# 86 "CLex.fsl"
+                                     GE 
+# 303 "CLex.fs"
           )
   | 20 -> ( 
-# 86 "CLex.fsl"
-                                     SEQOR 
-# 299 "CLex.fs"
+# 87 "CLex.fsl"
+                                     LE 
+# 308 "CLex.fs"
           )
   | 21 -> ( 
-# 87 "CLex.fsl"
-                                     SEQAND 
-# 304 "CLex.fs"
+# 88 "CLex.fsl"
+                                     SEQOR 
+# 313 "CLex.fs"
           )
   | 22 -> ( 
-# 88 "CLex.fsl"
-                                     AMP 
-# 309 "CLex.fs"
+# 89 "CLex.fsl"
+                                     SEQAND 
+# 318 "CLex.fs"
           )
   | 23 -> ( 
-# 89 "CLex.fsl"
-                                     NOT 
-# 314 "CLex.fs"
+# 90 "CLex.fsl"
+                                     AMP 
+# 323 "CLex.fs"
           )
   | 24 -> ( 
-# 90 "CLex.fsl"
-                                     LPAR 
-# 319 "CLex.fs"
+# 91 "CLex.fsl"
+                                     NOT 
+# 328 "CLex.fs"
           )
   | 25 -> ( 
-# 91 "CLex.fsl"
-                                     RPAR 
-# 324 "CLex.fs"
+# 92 "CLex.fsl"
+                                     LPAR 
+# 333 "CLex.fs"
           )
   | 26 -> ( 
-# 92 "CLex.fsl"
-                                     LBRACE 
-# 329 "CLex.fs"
+# 93 "CLex.fsl"
+                                     RPAR 
+# 338 "CLex.fs"
           )
   | 27 -> ( 
-# 93 "CLex.fsl"
-                                     RBRACE 
-# 334 "CLex.fs"
+# 94 "CLex.fsl"
+                                     LBRACE 
+# 343 "CLex.fs"
           )
   | 28 -> ( 
-# 94 "CLex.fsl"
-                                     LBRACK 
-# 339 "CLex.fs"
+# 95 "CLex.fsl"
+                                     RBRACE 
+# 348 "CLex.fs"
           )
   | 29 -> ( 
-# 95 "CLex.fsl"
-                                     RBRACK 
-# 344 "CLex.fs"
+# 96 "CLex.fsl"
+                                     LBRACK 
+# 353 "CLex.fs"
           )
   | 30 -> ( 
-# 96 "CLex.fsl"
-                                     SEMI 
-# 349 "CLex.fs"
+# 97 "CLex.fsl"
+                                     RBRACK 
+# 358 "CLex.fs"
           )
   | 31 -> ( 
-# 97 "CLex.fsl"
-                                     COMMA 
-# 354 "CLex.fs"
+# 98 "CLex.fsl"
+                                     SEMI 
+# 363 "CLex.fs"
           )
   | 32 -> ( 
-# 98 "CLex.fsl"
-                                     EndLineComment lexbuf; Token lexbuf 
-# 359 "CLex.fs"
+# 99 "CLex.fsl"
+                                     COMMA 
+# 368 "CLex.fs"
           )
   | 33 -> ( 
-# 102 "CLex.fsl"
-                                     Comment lexbuf; Token lexbuf 
-# 364 "CLex.fs"
+# 100 "CLex.fsl"
+                                     EndLineComment lexbuf; Token lexbuf 
+# 373 "CLex.fs"
           )
   | 34 -> ( 
-# 103 "CLex.fsl"
-                                     CSTSTRING (String [] lexbuf) 
-# 369 "CLex.fs"
+# 104 "CLex.fsl"
+                                     Comment lexbuf; Token lexbuf 
+# 378 "CLex.fs"
           )
   | 35 -> ( 
-# 104 "CLex.fsl"
-                                     EOF 
-# 374 "CLex.fs"
+# 105 "CLex.fsl"
+                                     CSTSTRING (String [] lexbuf) 
+# 383 "CLex.fs"
           )
   | 36 -> ( 
-# 105 "CLex.fsl"
+# 106 "CLex.fsl"
+                                     EOF 
+# 388 "CLex.fs"
+          )
+  | 37 -> ( 
+# 107 "CLex.fsl"
                                      failwith "Lexer error: illegal symbol" 
-# 379 "CLex.fs"
+# 393 "CLex.fs"
           )
   | _ -> failwith "Token"
 // Rule Comment
 and Comment  lexbuf =
   match _fslex_tables.Interpret(16,lexbuf) with
   | 0 -> ( 
-# 108 "CLex.fsl"
+# 110 "CLex.fsl"
                                      Comment lexbuf; Comment lexbuf 
-# 388 "CLex.fs"
+# 402 "CLex.fs"
           )
   | 1 -> ( 
-# 109 "CLex.fsl"
+# 111 "CLex.fsl"
                                      () 
-# 393 "CLex.fs"
+# 407 "CLex.fs"
           )
   | 2 -> ( 
-# 110 "CLex.fsl"
+# 112 "CLex.fsl"
                                      lexbuf.EndPos <- lexbuf.EndPos.NextLine; Comment lexbuf 
-# 398 "CLex.fs"
+# 412 "CLex.fs"
           )
   | 3 -> ( 
-# 111 "CLex.fsl"
+# 113 "CLex.fsl"
                                      failwith "Lexer error: unterminated comment" 
-# 403 "CLex.fs"
+# 417 "CLex.fs"
           )
   | 4 -> ( 
-# 112 "CLex.fsl"
+# 114 "CLex.fsl"
                                      Comment lexbuf 
-# 408 "CLex.fs"
+# 422 "CLex.fs"
           )
   | _ -> failwith "Comment"
 // Rule EndLineComment
 and EndLineComment  lexbuf =
   match _fslex_tables.Interpret(11,lexbuf) with
   | 0 -> ( 
-# 115 "CLex.fsl"
+# 117 "CLex.fsl"
                                      lexbuf.EndPos <- lexbuf.EndPos.NextLine 
-# 417 "CLex.fs"
+# 431 "CLex.fs"
           )
   | 1 -> ( 
-# 116 "CLex.fsl"
+# 118 "CLex.fsl"
                                      () 
-# 422 "CLex.fs"
+# 436 "CLex.fs"
           )
   | 2 -> ( 
-# 117 "CLex.fsl"
+# 119 "CLex.fsl"
                                      EndLineComment lexbuf 
-# 427 "CLex.fs"
+# 441 "CLex.fs"
           )
   | _ -> failwith "EndLineComment"
 // Rule String
 and String chars lexbuf =
   match _fslex_tables.Interpret(0,lexbuf) with
   | 0 -> ( 
-# 121 "CLex.fsl"
+# 123 "CLex.fsl"
                        Microsoft.FSharp.Core.String.concat "" (List.map string (List.rev chars)) 
-# 436 "CLex.fs"
+# 450 "CLex.fs"
           )
   | 1 -> ( 
-# 126 "CLex.fsl"
+# 128 "CLex.fsl"
                        String (cEscape (lexemeAsString lexbuf) :: chars) lexbuf 
-# 441 "CLex.fs"
+# 455 "CLex.fs"
           )
   | 2 -> ( 
-# 128 "CLex.fsl"
+# 130 "CLex.fsl"
                        String ('\'' :: chars) lexbuf 
-# 446 "CLex.fs"
+# 460 "CLex.fs"
           )
   | 3 -> ( 
-# 130 "CLex.fsl"
+# 132 "CLex.fsl"
                        failwith "Lexer error: illegal escape sequence" 
-# 451 "CLex.fs"
+# 465 "CLex.fs"
           )
   | 4 -> ( 
-# 131 "CLex.fsl"
+# 133 "CLex.fsl"
                                           failwith "Lexer error: unterminated string" 
-# 456 "CLex.fs"
+# 470 "CLex.fs"
           )
   | 5 -> ( 
-# 134 "CLex.fsl"
+# 136 "CLex.fsl"
                                   failwith "Lexer error: newline in string" 
-# 461 "CLex.fs"
+# 475 "CLex.fs"
           )
   | 6 -> ( 
-# 137 "CLex.fsl"
+# 139 "CLex.fsl"
                        failwith "Lexer error: invalid character in string" 
-# 466 "CLex.fs"
+# 480 "CLex.fs"
           )
   | 7 -> ( 
-# 139 "CLex.fsl"
+# 141 "CLex.fsl"
                        String (char (lexbuf.LexemeChar 0) :: chars) lexbuf 
-# 471 "CLex.fs"
+# 485 "CLex.fs"
           )
   | _ -> failwith "String"
 

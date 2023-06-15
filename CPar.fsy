@@ -21,7 +21,8 @@ let nl = CstI 10 //  \n 的 ASCII 码
 %token PLUS MINUS TIMES DIV MOD
 %token EQ NE GT LT GE LE COLON
 // 自增token
-%token NOT SEQOR SEQAND PREINC  PREDEC QST
+%token <float32> CSTFLOAT 
+%token NOT SEQOR SEQAND PREINC  PREDEC QST FLOAT
 %token LPAR RPAR LBRACE RBRACE LBRACK RBRACK SEMI COMMA ASSIGN AMP
 %token EOF
 
@@ -192,6 +193,7 @@ AtExprNotAccess:
     Const                               { CstI $1             }
   | LPAR ExprNotAccess RPAR             { $2                  } 
   | AMP Access                          { Addr $2             } // 取地址
+  | ConstFloat                          { CstF($1)      }//float
 ;
 
 Access:    //可以为左值的情况
@@ -218,10 +220,15 @@ Const:
   | MINUS CSTINT                        { - $2     }
   | NULL                                { -1       }
 ;
+ConstFloat:
+    CSTFLOAT                            { $1       }
+  | MINUS CSTFLOAT                       { - $2    }
 
+; 
 Type:
     INT                                 { TypI     }
   | CHAR                                { TypC     }
+  | FLOAT                               { TypF     }//float类别
 ;
 
 

@@ -318,10 +318,12 @@ let rec exec stmt (locEnv: locEnv) (gloEnv: gloEnv) (store: store) : store =
 
         (carry body)
 
+
     | Case(e, body) -> exec body locEnv gloEnv store
     | Default(body) -> exec body locEnv gloEnv store
 
-    | Return _ -> failwith "return not implemented" // 解释器没有实现 return
+    | Return e -> failwith "return not implemented" // 解释器没有实现 return
+
 
 and stmtordec stmtordec locEnv gloEnv store =
     match stmtordec with
@@ -340,6 +342,10 @@ and eval e locEnv gloEnv store : int * store =
         let (res, store2) = eval e locEnv gloEnv store1
         (res, setSto store2 loc res)
     | CstI i -> (i, store)
+    | CstF f ->
+        let bytes = System.BitConverter.GetBytes(float32 (f))
+        let v = System.BitConverter.ToInt32(bytes, 0)
+        (v, store)
     | Addr acc -> access acc locEnv gloEnv store
     | Prim1(ope, e1) ->
         let (i1, store1) = eval e1 locEnv gloEnv store
@@ -396,17 +402,12 @@ and eval e locEnv gloEnv store : int * store =
         | _ -> failwith ("unknown primitive " + ope)
 
     | Prim4(e1, e2, e3) ->
-
         let (i1, store1) = eval e1 locEnv gloEnv store
         let (i2, store2) = eval e2 locEnv gloEnv store1
         let (i3, store3) = eval e3 locEnv gloEnv store1
         let res = if i1 <> 0 then i2 else i3
         if i1 <> 0 then (res, store2) else (res, store3)
 
-    // | Assign2(acc,e1)->
-    //     let (loc, store1) = access acc locEnv gloEnv store
-    //     let (res, store2) = eval e locEnv gloEnv store1
-    //     (res, setSto store2 loc res)
 
     | Andalso(e1, e2) ->
         let (i1, store1) as res = eval e1 locEnv gloEnv store

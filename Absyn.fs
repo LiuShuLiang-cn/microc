@@ -11,6 +11,7 @@ module Absyn
 // 注意，数组、指针是递归类型
 // 这里没有函数类型，注意与上次课的 MicroML 对比
 type typ =
+    | TypF
     | TypI (* Type int                    *)
     | TypC (* Type char                   *)
     | TypA of typ * int option (* Array type                  *)
@@ -23,11 +24,12 @@ and expr = // 表达式，右值
     | CstI of int (* Constant                    *)
     | Prim1 of string * expr (* Unary primitive operator    *)
     | Prim2 of string * expr * expr (* Binary primitive operator   *)
-    | Prim3 of string * access (* i++ ++i             *)
+    | Prim3 of string * access (* i++ ++i  i-- --i          *)
     | Andalso of expr * expr (* Sequential and              *)
     | Orelse of expr * expr (* Sequential or               *)
     | Call of string * expr list (* Function call f(...)        *)
-    | Prim4 of expr * expr * expr (* Binary primitive operator     *) // ?:
+    | Prim4 of expr * expr * expr (*  operator3    *) // ?:
+    | CstF of float32
 
 and access = //左值，存储的位置
     | AccVar of string (* Variable access        x    *)
@@ -44,6 +46,7 @@ and stmt =
     | Switch of expr * stmt list (* Switch 语句                 *)
     | Case of expr * stmt (* Case 语句                   *)
     | Default of stmt (* Default 语句                *)
+
 // 语句块内部，可以是变量声明 或语句的列表
 
 and stmtordec =
@@ -54,6 +57,7 @@ and stmtordec =
 and topdec =
     | Fundec of typ option * string * (typ * string) list * stmt
     | Vardec of typ * string
+    | Structdec of string * (typ * string) list
 
 // 程序是顶级声明的列表
 and program = Prog of topdec list

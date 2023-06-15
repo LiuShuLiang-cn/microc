@@ -1,6 +1,6 @@
 void main(){
     int a;
-    a = 2;
+    a = 9;
     switch (a)
     {
     case 1:
