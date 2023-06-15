@@ -387,6 +387,12 @@ and eval e locEnv gloEnv store : int * store =
         | "++I" ->
             let res = i1 + 1
             res, setSto store1 loc res
+        | "I--" ->
+            let res = i1 - 1
+            i1, setSto store1 loc res
+        | "--I" ->
+            let res = i1 - 1
+            res, setSto store1 loc res
         | _ -> failwith ("unknown primitive " + ope)
     | Andalso(e1, e2) ->
         let (i1, store1) as res = eval e1 locEnv gloEnv store
