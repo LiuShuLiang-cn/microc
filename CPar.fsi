@@ -22,6 +22,7 @@ type token =
   | LT
   | GE
   | LE
+  | COLON
   | PLUS
   | MINUS
   | TIMES
@@ -38,6 +39,9 @@ type token =
   | VOID
   | WHILE
   | FOR
+  | SWITCH
+  | CASE
+  | DEFAULT
   | CSTSTRING of (string)
   | NAME of (string)
   | CSTINT of (int)
@@ -64,6 +68,7 @@ type tokenId =
     | TOKEN_LT
     | TOKEN_GE
     | TOKEN_LE
+    | TOKEN_COLON
     | TOKEN_PLUS
     | TOKEN_MINUS
     | TOKEN_TIMES
@@ -80,6 +85,9 @@ type tokenId =
     | TOKEN_VOID
     | TOKEN_WHILE
     | TOKEN_FOR
+    | TOKEN_SWITCH
+    | TOKEN_CASE
+    | TOKEN_DEFAULT
     | TOKEN_CSTSTRING
     | TOKEN_NAME
     | TOKEN_CSTINT
@@ -109,6 +117,8 @@ type nonTerminalId =
     | NONTERM_Exprs1
     | NONTERM_Const
     | NONTERM_Type
+    | NONTERM_CaseBody
+    | NONTERM_CaseDec
 /// This function maps tokens to integer indexes
 val tagOfToken: token -> int
 
