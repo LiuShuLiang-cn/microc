@@ -17,6 +17,7 @@ type token =
   | SEQAND
   | PREINC
   | PREDEC
+  | QST
   | EQ
   | NE
   | GT
@@ -64,6 +65,7 @@ type tokenId =
     | TOKEN_SEQAND
     | TOKEN_PREINC
     | TOKEN_PREDEC
+    | TOKEN_QST
     | TOKEN_EQ
     | TOKEN_NE
     | TOKEN_GT

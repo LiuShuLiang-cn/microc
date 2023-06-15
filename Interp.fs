@@ -394,6 +394,20 @@ and eval e locEnv gloEnv store : int * store =
             let res = i1 - 1
             res, setSto store1 loc res
         | _ -> failwith ("unknown primitive " + ope)
+
+    | Prim4(e1, e2, e3) ->
+
+        let (i1, store1) = eval e1 locEnv gloEnv store
+        let (i2, store2) = eval e2 locEnv gloEnv store1
+        let (i3, store3) = eval e3 locEnv gloEnv store1
+        let res = if i1 <> 0 then i2 else i3
+        if i1 <> 0 then (res, store2) else (res, store3)
+
+    // | Assign2(acc,e1)->
+    //     let (loc, store1) = access acc locEnv gloEnv store
+    //     let (res, store2) = eval e locEnv gloEnv store1
+    //     (res, setSto store2 loc res)
+
     | Andalso(e1, e2) ->
         let (i1, store1) as res = eval e1 locEnv gloEnv store
 

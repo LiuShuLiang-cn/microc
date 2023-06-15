@@ -73,6 +73,7 @@ rule Token = parse          // 每个 规则rule 会生成为一个函数，函�
   | '-'             { MINUS } 
   | '*'             { TIMES } 
   | ':'             { COLON }
+  | '?'             { QST  } // ?:
   | '/'             { DIV } 
   | '%'             { MOD }                     
   | '='             { ASSIGN } 
